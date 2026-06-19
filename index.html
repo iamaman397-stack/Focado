@@ -11,14 +11,25 @@
 </head>
 <body>
 <header class="topbar">
-  <img class="logo" src="focado-logo-green.png" alt="Focado" />
-  <nav class="nav">
-    <a href="#">Menu</a>
-    <a href="#">Restaurants</a>
-    <a href="#">Team</a>
-    <a href="#">Careers</a>
-  </nav>
+  <div class="bar-left">
+    <img class="logo" src="focado-logo-green.png" alt="Focado" />
+    <nav class="nav">
+      <a href="#">Menu</a>
+      <a href="#">Restaurants</a>
+      <a href="#">Team</a>
+      <a href="#">Careers</a>
+    </nav>
+  </div>
+  <button class="burger" aria-label="Menu" onclick="document.body.classList.toggle('nav-open')">
+    <span></span><span></span><span></span>
+  </button>
 </header>
+<nav class="mobile-nav">
+  <a href="#">Menu</a>
+  <a href="#">Restaurants</a>
+  <a href="#">Team</a>
+  <a href="#">Careers</a>
+</nav>
 <main>
   <section class="hero">
     <div class="content">
