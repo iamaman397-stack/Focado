@@ -14,7 +14,7 @@ body{font-family:"Poppins",sans-serif;color:#1A5C1A;overflow-x:hidden;}
 .hero{display:flex;align-items:flex-start;min-height:calc(100svh - 85px);background:#FFFFFF url("hero-white.jpg") right center / cover no-repeat;padding:clamp(3rem,7vw,6rem) clamp(2rem,5vw,5rem);}
 .content{max-width:600px;width:100%;}
 .headline{font-weight:800;font-size:clamp(2.8rem,5.4vw,4.8rem);line-height:1.05;letter-spacing:-0.02em;color:#1A5C1A;margin-bottom:1.1rem;}
-.crave{color:#E89500;font-style:italic;}
+.crave{color:var(--amber);font-style:italic;margin-right:0.12em;}
 .subline{font-weight:500;font-size:clamp(1.15rem,2vw,1.55rem);color:#3D2B1F;}
 .menu{padding:clamp(3.5rem,7vw,6rem) clamp(1.5rem,5vw,5rem);text-align:center;background:var(--cream);}
 .eyebrow{font-weight:700;font-size:0.95rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber);margin-bottom:0.6rem;}
@@ -45,7 +45,7 @@ body{font-family:"Poppins",sans-serif;color:#1A5C1A;overflow-x:hidden;}
   .nav{display:none;}
   .burger{display:flex;}
   body.nav-open .mobile-nav{display:flex;}
-  .hero{align-items:flex-start;text-align:center;padding:2.5rem 1.5rem 18rem;background-size:150% auto;background-position:center bottom;min-height:auto;}
+  .hero{align-items:flex-start;text-align:center;padding:1.5rem 1.5rem 22rem;background-size:140% auto;background-position:center bottom;min-height:auto;}
   .content{margin:0 auto;}
   .cards{grid-template-columns:repeat(2,1fr);max-width:520px;}
   .waitlist-form{flex-direction:column;}
