@@ -1,14 +1,14 @@
 :root{--green:#1A5C1A;--amber:#E89500;--cream:#F5F0E8;--brown:#3D2B1F;--white:#FFFFFF;}
 *{margin:0;padding:0;box-sizing:border-box;}
-html,body{height:100%;margin:0;padding:0;background:var(--white);}
-body{font-family:"Poppins",system-ui,-apple-system,sans-serif;color:var(--green);overflow-x:hidden;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;min-height:100vh;min-height:100svh;}
-.topbar{display:flex;align-items:center;padding:1.5rem clamp(2rem,5vw,4.5rem);border-bottom:1px solid rgba(0,0,0,0.07);background:var(--white);}
+html,body{height:100%;margin:0;padding:0;background:#FFFFFF;}
+body{font-family:"Poppins",sans-serif;color:#1A5C1A;overflow-x:hidden;display:flex;flex-direction:column;min-height:100vh;min-height:100svh;}
+.topbar{display:flex;align-items:center;padding:1.5rem clamp(2rem,5vw,4.5rem);border-bottom:1px solid rgba(0,0,0,0.07);background:#FFFFFF;}
 .topbar .logo{display:block;width:clamp(200px,20vw,300px);height:auto;}
-.hero{flex:1;min-height:0;display:flex;align-items:center;background:var(--white) url("hero-white.jpg") right center / cover no-repeat;padding:clamp(2rem,5vw,5rem);}
+.hero{flex:1;min-height:0;display:flex;align-items:center;background:#FFFFFF url("hero-white.jpg") right center / cover no-repeat;padding:clamp(2rem,5vw,5rem);}
 .content{max-width:600px;width:100%;}
-.headline{font-weight:800;font-size:clamp(2.6rem,5vw,4.4rem);line-height:1.05;letter-spacing:-0.02em;color:var(--green);margin-bottom:clamp(0.9rem,2vw,1.3rem);}
-.crave{color:var(--amber);font-style:italic;}
-.subline{font-weight:500;font-size:clamp(1.1rem,1.9vw,1.45rem);color:var(--brown);}
+.headline{font-weight:800;font-size:clamp(2.6rem,5vw,4.4rem);line-height:1.05;letter-spacing:-0.02em;color:#1A5C1A;margin-bottom:1.2rem;}
+.crave{color:#E89500;font-style:italic;}
+.subline{font-weight:500;font-size:clamp(1.1rem,1.9vw,1.45rem);color:#3D2B1F;}
 @media(max-width:760px){
   .topbar{justify-content:center;padding:1.25rem 1.5rem;}
   .hero{align-items:flex-start;text-align:center;padding:2.5rem 1.5rem 0;background-size:150% auto;background-position:center bottom;}
