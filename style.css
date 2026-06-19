@@ -46,7 +46,7 @@ body{font-family:"Poppins",sans-serif;color:#1A5C1A;overflow-x:hidden;}
   .nav{display:none;}
   .burger{display:flex;}
   body.nav-open .mobile-nav{display:flex;}
-  .hero{align-items:flex-start;text-align:center;padding:1.5rem 1.5rem 15rem;background-size:140% auto;background-position:center bottom;min-height:auto;}
+  .hero{align-items:flex-start;text-align:center;padding:1.5rem 1.5rem 19rem;background-size:140% auto;background-position:center bottom;min-height:auto;}
   .content{margin:0 auto;}
   .cards{grid-template-columns:repeat(2,1fr);max-width:520px;}
   .waitlist-form{flex-direction:column;}
