@@ -13,7 +13,7 @@ body{font-family:"Poppins",sans-serif;color:#1A5C1A;overflow-x:hidden;}
 .mobile-nav a{padding:14px clamp(1.5rem,4vw,3.5rem);font-weight:600;font-size:1.1rem;color:var(--green);text-decoration:none;border-top:1px solid rgba(0,0,0,0.05);}
 .hero{display:flex;align-items:flex-start;min-height:calc(100svh - 85px);background:#FFFFFF url("hero-white.jpg") right center / cover no-repeat;padding:clamp(3rem,7vw,6rem) clamp(2rem,5vw,5rem);}
 .content{max-width:600px;width:100%;}
-.headline{font-weight:800;font-size:clamp(3rem,6vw,5.4rem);line-height:1.02;letter-spacing:-0.02em;color:#1A5C1A;margin-bottom:1.1rem;}
+.headline{font-weight:800;font-size:clamp(2.8rem,5.4vw,4.8rem);line-height:1.05;letter-spacing:-0.02em;color:#1A5C1A;margin-bottom:1.1rem;}
 .soon{display:inline-block;font-weight:600;font-size:0.5em;color:#1A5C1A;opacity:0.75;margin-top:0.3em;}
 .crave{color:var(--amber);font-style:italic;margin-right:0.12em;}
 .subline{font-weight:500;font-size:clamp(1.15rem,2vw,1.55rem);color:#3D2B1F;}
