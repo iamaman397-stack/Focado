@@ -5,133 +5,19 @@
   --brown: #3D2B1F;
   --white: #FFFFFF;
 }
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
-html, body { height: 100%; }
-
-body {
-  font-family: "Poppins", system-ui, -apple-system, sans-serif;
-  background: var(--cream);
-  color: var(--green);
-  -webkit-font-smoothing: antialiased;
-}
-
-/* ---------- Layout ---------- */
-.split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 100vh;
-  min-height: 100svh;
-}
-
-.pane {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.pane--text {
-  background: var(--cream);
-  padding: clamp(2rem, 6vw, 6rem);
-}
-
-.content {
-  max-width: 520px;
-  width: 100%;
-  animation: rise 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-}
-
-.pane--image {
-  background:
-    linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.10)),
-    url("hero.jpg") center / cover no-repeat;
-}
-
-/* ---------- Logo ---------- */
-.logo {
-  font-weight: 900;
-  font-size: clamp(3.2rem, 7vw, 5.2rem);
-  letter-spacing: -0.02em;
-  line-height: 1;
-  color: var(--green);
-  margin-bottom: clamp(1.6rem, 4vw, 2.4rem);
-}
-
-.o-accent {
-  position: relative;
-}
-
-.o-accent::after {
-  content: "";
-  position: absolute;
-  top: -0.30em;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0.17em;
-  height: 0.17em;
-  background: var(--amber);
-  border-radius: 50%;
-}
-
-/* ---------- Headline ---------- */
-.headline {
-  font-weight: 800;
-  font-size: clamp(2.4rem, 5.2vw, 4rem);
-  line-height: 1.05;
-  letter-spacing: -0.015em;
-  color: var(--green);
-  margin-bottom: clamp(1rem, 2.5vw, 1.4rem);
-}
-
-.crave {
-  color: var(--amber);
-  letter-spacing: 0.06em;
-  font-style: italic;
-}
-
-/* ---------- Sub-line ---------- */
-.subline {
-  font-weight: 500;
-  font-size: clamp(1.05rem, 2vw, 1.35rem);
-  color: var(--brown);
-  margin-bottom: clamp(2rem, 5vw, 2.8rem);
-}
-
-/* ---------- Badge ---------- */
-.badge {
-  display: inline-block;
-  background: var(--green);
-  color: var(--cream);
-  font-weight: 600;
-  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
-  letter-spacing: 0.01em;
-  padding: 0.85em 1.6em;
-  border-radius: 999px;
-}
-
-/* ---------- Motion ---------- */
-@keyframes rise {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .content { animation: none; }
-}
-
-/* ---------- Mobile ---------- */
+html, body { height: 100%; margin: 0; padding: 0; background: var(--green); }
+body { font-family: "Poppins", system-ui, -apple-system, sans-serif; color: var(--white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+.hero { display: flex; align-items: center; width: 100%; min-height: 100vh; min-height: 100svh; background: var(--green) url("hero.jpg") center center / cover no-repeat; padding: clamp(2.5rem, 6vw, 7rem); }
+.content { max-width: 600px; width: 100%; }
+.logo { font-weight: 900; font-size: clamp(3.4rem, 6.2vw, 5rem); letter-spacing: -0.02em; line-height: 1; color: var(--cream); margin-bottom: clamp(1.8rem, 4vw, 2.6rem); }
+.o-accent { position: relative; }
+.o-accent::after { content: ""; position: absolute; top: 0.10em; left: 50%; transform: translateX(-50%); width: 0.19em; height: 0.19em; background: var(--amber); border-radius: 50%; }
+.headline { font-weight: 800; font-size: clamp(3rem, 6.2vw, 5.2rem); line-height: 1.02; letter-spacing: -0.02em; color: var(--white); margin-bottom: clamp(1.1rem, 2.5vw, 1.6rem); }
+.crave { color: var(--amber); letter-spacing: 0.05em; font-style: italic; }
+.subline { font-weight: 500; font-size: clamp(1.2rem, 2.1vw, 1.6rem); color: var(--cream); opacity: 0.92; margin-bottom: clamp(2.2rem, 5vw, 3rem); }
+.badge { display: inline-block; background: var(--amber); color: var(--green); font-weight: 700; font-size: clamp(1rem, 1.7vw, 1.15rem); letter-spacing: 0.01em; padding: 0.95em 1.9em; border-radius: 999px; }
 @media (max-width: 760px) {
-  .split {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 42vh;
-  }
-  .pane--text {
-    padding: 3.5rem 1.75rem 3rem;
-    min-height: 58vh;
-  }
-  .content {
-    margin: auto;
-    text-align: center;
-  }
+  .hero { justify-content: flex-start; text-align: center; padding: 4rem 1.5rem; background-size: 170% auto; background-position: center bottom; }
+  .content { margin: 0 auto; max-width: 460px; }
 }
