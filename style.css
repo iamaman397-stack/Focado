@@ -24,7 +24,7 @@ body{font-family:"Poppins",sans-serif;color:#1A5C1A;overflow-x:hidden;}
 .slide-2 .slide-img{object-position:right center;}
 /* Slide 2: live headline overlay on the left third, vertically centered */
 .slide-2 .slide-content{text-align:left;max-width:42%;padding:0 1rem 0 clamp(1.5rem,5vw,5rem);}
-.banner-headline{font-family:"Poppins",sans-serif;font-weight:800;font-size:clamp(2.25rem,5vw,4rem);line-height:1.05;letter-spacing:-0.02em;color:var(--green);white-space:nowrap;}
+.banner-headline{font-family:"Poppins",sans-serif;font-weight:800;font-size:clamp(2.75rem,5.7vw,6.5rem);line-height:1.03;letter-spacing:-0.02em;color:var(--green);white-space:nowrap;}
 .banner-accent{color:var(--amber);font-style:italic;margin-right:0.4em;}
 /* Slide 2 (splash): dark full-bleed image, upper-left amber/cream text */
 .slide-splash{background-color:var(--brown);justify-content:flex-start;align-items:flex-start;}
