@@ -24,7 +24,7 @@ body{font-family:"Poppins",sans-serif;color:#1A5C1A;overflow-x:hidden;}
    closer to the headline via a small right-anchored scale that crops some of
    the left cream gap. Uniform scale = no distortion; clipped by the
    carousel's overflow:hidden. Kept modest so a clear gap to the text remains. */
-.slide-2 .slide-img{object-position:right center;transform:scale(1.08);transform-origin:right center;}
+.slide-2 .slide-img{object-position:right center;transform:scale(1.16);transform-origin:right center;}
 /* Slide 2: live headline overlay on the left third, vertically centered */
 .slide-2 .slide-content{text-align:left;max-width:42%;padding:0 1rem 0 clamp(1.5rem,5vw,5rem);}
 .banner-headline{font-family:"Poppins",sans-serif;font-weight:800;font-size:clamp(2.75rem,5.7vw,6.5rem);line-height:1.03;letter-spacing:-0.02em;color:var(--green);white-space:nowrap;}
