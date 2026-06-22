@@ -26,6 +26,15 @@ body{font-family:"Poppins",sans-serif;color:#1A5C1A;overflow-x:hidden;}
 .slide-2 .slide-content{text-align:left;max-width:42%;padding:0 1rem 0 clamp(1.5rem,5vw,5rem);}
 .banner-headline{font-family:"Poppins",sans-serif;font-weight:800;font-size:clamp(2.25rem,5vw,4rem);line-height:1.05;letter-spacing:-0.02em;color:var(--green);white-space:nowrap;}
 .banner-accent{color:var(--amber);font-style:italic;margin-right:0.4em;}
+/* Slide 2 (splash): dark full-bleed image, upper-left amber/cream text */
+.slide-splash{background-color:var(--brown);justify-content:flex-start;align-items:flex-start;}
+.slide-splash .slide-img{object-position:right center;z-index:0;}
+/* minimal left-side dark scrim so cream text stays readable over uneven splash; fades out before the food on the right */
+.slide-splash::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(105deg,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0.18) 35%,rgba(0,0,0,0) 60%);}
+.slide-splash .slide-content{z-index:2;text-align:left;max-width:50%;padding:clamp(2rem,5vw,3.5rem) 1rem 0 clamp(1.5rem,5vw,5rem);}
+.splash-headline{font-family:"Poppins",sans-serif;font-weight:800;font-size:clamp(1.625rem,3.4vw,3rem);line-height:1.1;letter-spacing:-0.01em;color:var(--cream);}
+.splash-items{font-weight:700;color:var(--amber);}
+.splash-rest{font-weight:800;color:var(--cream);}
 .slide-3{background-color:var(--brown);}
 /* real banner image sits behind .slide-content and fills the slide */
 .slide-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
@@ -79,6 +88,7 @@ body{font-family:"Poppins",sans-serif;color:#1A5C1A;overflow-x:hidden;}
   .carousel-arrow{width:40px;height:40px;}
   .slide-text{font-size:clamp(2rem,9vw,3rem);}
   .slide-2 .slide-content{max-width:60%;padding:0 1rem 0 1.5rem;}
+  .slide-splash .slide-content{max-width:78%;padding:clamp(1.25rem,6vw,2rem) 1rem 0 1.5rem;}
   .cards{grid-template-columns:repeat(2,1fr);max-width:520px;}
   .waitlist-form{flex-direction:column;}
   .footer{grid-template-columns:1fr;text-align:center;gap:1.5rem;}
