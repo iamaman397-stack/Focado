@@ -20,8 +20,11 @@ body{font-family:"Poppins",sans-serif;color:#1A5C1A;overflow-x:hidden;}
 /* placeholder colours — later swap for background-image here or an <img class="slide-img"> in the markup */
 .slide-1{background-color:var(--green);}
 .slide-2{background-color:var(--cream);justify-content:flex-start;}
-/* Slide 2: full-bleed food image, food anchored right so it is never cropped out */
-.slide-2 .slide-img{object-position:right center;}
+/* Slide 1 food image: pinned right (no right-edge crop) and nudged a step
+   closer to the headline via a small right-anchored scale that crops some of
+   the left cream gap. Uniform scale = no distortion; clipped by the
+   carousel's overflow:hidden. Kept modest so a clear gap to the text remains. */
+.slide-2 .slide-img{object-position:right center;transform:scale(1.08);transform-origin:right center;}
 /* Slide 2: live headline overlay on the left third, vertically centered */
 .slide-2 .slide-content{text-align:left;max-width:42%;padding:0 1rem 0 clamp(1.5rem,5vw,5rem);}
 .banner-headline{font-family:"Poppins",sans-serif;font-weight:800;font-size:clamp(2.75rem,5.7vw,6.5rem);line-height:1.03;letter-spacing:-0.02em;color:var(--green);white-space:nowrap;}
