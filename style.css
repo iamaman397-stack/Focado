@@ -19,7 +19,13 @@ body{font-family:"Poppins",sans-serif;color:#1A5C1A;overflow-x:hidden;}
 .slide.is-active{opacity:1;visibility:visible;}
 /* placeholder colours — later swap for background-image here or an <img class="slide-img"> in the markup */
 .slide-1{background-color:var(--green);}
-.slide-2{background-color:var(--cream);}
+.slide-2{background-color:var(--cream);justify-content:flex-start;}
+/* Slide 2: full-bleed food image, food anchored right so it is never cropped out */
+.slide-2 .slide-img{object-position:right center;}
+/* Slide 2: live headline overlay on the left third, vertically centered */
+.slide-2 .slide-content{text-align:left;max-width:42%;padding:0 1rem 0 clamp(1.5rem,5vw,5rem);}
+.banner-headline{font-family:"Poppins",sans-serif;font-weight:800;font-size:clamp(2rem,5vw,3.5rem);line-height:1.1;letter-spacing:-0.02em;color:var(--green);}
+.banner-accent{color:var(--amber);font-style:italic;}
 .slide-3{background-color:var(--brown);}
 /* real banner image sits behind .slide-content and fills the slide */
 .slide-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
@@ -72,6 +78,7 @@ body{font-family:"Poppins",sans-serif;color:#1A5C1A;overflow-x:hidden;}
   .hero-carousel{min-height:60svh;}
   .carousel-arrow{width:40px;height:40px;}
   .slide-text{font-size:clamp(2rem,9vw,3rem);}
+  .slide-2 .slide-content{max-width:60%;padding:0 1rem 0 1.5rem;}
   .cards{grid-template-columns:repeat(2,1fr);max-width:520px;}
   .waitlist-form{flex-direction:column;}
   .footer{grid-template-columns:1fr;text-align:center;gap:1.5rem;}
