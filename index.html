@@ -31,10 +31,40 @@
   <a href="#">Careers</a>
 </nav>
 <main>
-  <section class="hero">
-    <div class="content">
-      <h1 class="headline"><span class="crave">Goooood</span> food.<br>Coming soon.</h1>
-      <p class="subline">Tasty. Healthy. Loaded.</p>
+  <section class="hero-carousel" aria-roledescription="carousel" aria-label="Featured banners">
+    <div class="carousel-track">
+      <!--
+        SLIDE TEMPLATE — to use a real banner later:
+        1. Drop an image in as the first child of .slide:
+             <img class="slide-img" src="banner-1.jpg" alt="" />
+           (it is absolutely positioned + object-fit:cover and sits behind .slide-content)
+           OR set background-image on the .slide-N rule in style.css instead of the colour.
+        2. Put the headline / CTA markup inside .slide-content (it already overlays the background).
+        The placeholder colour + "Banner N" text below is only so we can tell slides apart for now.
+      -->
+      <div class="slide slide-1 is-active" aria-hidden="false">
+        <!-- swap background-image / <img class="slide-img"> in here -->
+        <div class="slide-content"><span class="slide-text">Banner 1</span></div>
+      </div>
+      <div class="slide slide-2" aria-hidden="true">
+        <!-- swap background-image / <img class="slide-img"> in here -->
+        <div class="slide-content"><span class="slide-text">Banner 2</span></div>
+      </div>
+      <div class="slide slide-3" aria-hidden="true">
+        <!-- swap background-image / <img class="slide-img"> in here -->
+        <div class="slide-content"><span class="slide-text">Banner 3</span></div>
+      </div>
+    </div>
+    <button class="carousel-arrow carousel-prev" aria-label="Previous banner">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="carousel-arrow carousel-next" aria-label="Next banner">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="carousel-dots" role="tablist" aria-label="Select banner">
+      <button class="dot is-active" type="button" role="tab" aria-selected="true" aria-label="Go to banner 1"></button>
+      <button class="dot" type="button" role="tab" aria-selected="false" aria-label="Go to banner 2"></button>
+      <button class="dot" type="button" role="tab" aria-selected="false" aria-label="Go to banner 3"></button>
     </div>
   </section>
   <section class="menu">
@@ -83,5 +113,50 @@
     </div>
   </footer>
 </main>
+<script>
+(function(){
+  var carousel = document.querySelector('.hero-carousel');
+  if(!carousel) return;
+  var slides = Array.prototype.slice.call(carousel.querySelectorAll('.slide'));
+  var dots   = Array.prototype.slice.call(carousel.querySelectorAll('.dot'));
+  var prevBtn = carousel.querySelector('.carousel-prev');
+  var nextBtn = carousel.querySelector('.carousel-next');
+  var DELAY = 3000;        // auto-advance every 3 seconds
+  var current = 0;
+  var timer = null;
+
+  function show(i){
+    current = (i + slides.length) % slides.length;   // wrap/loop both directions
+    slides.forEach(function(s, idx){
+      var active = idx === current;
+      s.classList.toggle('is-active', active);
+      s.setAttribute('aria-hidden', active ? 'false' : 'true');
+    });
+    dots.forEach(function(d, idx){
+      var active = idx === current;
+      d.classList.toggle('is-active', active);
+      d.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+  }
+  function next(){ show(current + 1); }
+  function prev(){ show(current - 1); }
+  function startAuto(){ stopAuto(); timer = setInterval(next, DELAY); }
+  function stopAuto(){ if(timer){ clearInterval(timer); timer = null; } }
+  function resetAuto(){ startAuto(); }   // any manual interaction restarts the 3s timer
+
+  nextBtn.addEventListener('click', function(){ next(); resetAuto(); });
+  prevBtn.addEventListener('click', function(){ prev(); resetAuto(); });
+  dots.forEach(function(d, idx){
+    d.addEventListener('click', function(){ show(idx); resetAuto(); });
+  });
+
+  // Pause on hover, resume on leave
+  carousel.addEventListener('mouseenter', stopAuto);
+  carousel.addEventListener('mouseleave', startAuto);
+
+  show(0);
+  startAuto();
+})();
+</script>
 </body>
 </html>
