@@ -42,13 +42,14 @@
         2. Put the headline / CTA markup inside .slide-content (it already overlays the background).
         The placeholder colour + "Banner N" text below is only so we can tell slides apart for now.
       -->
-      <div class="slide slide-1 is-active" aria-hidden="false">
-        <!-- swap background-image / <img class="slide-img"> in here -->
-        <div class="slide-content"><span class="slide-text">Banner 1</span></div>
-      </div>
-      <div class="slide slide-2" aria-hidden="true">
+      <!-- Food banner shown first; keeps its .slide-2 styling (image + headline) -->
+      <div class="slide slide-2 is-active" aria-hidden="false">
         <img class="slide-img" src="banner-food.png" alt="" />
         <div class="slide-content"><h2 class="banner-headline"><span class="banner-accent">Goooood</span> food is coming, Kolkata. Get ready.</h2></div>
+      </div>
+      <div class="slide slide-1" aria-hidden="true">
+        <!-- swap background-image / <img class="slide-img"> in here -->
+        <div class="slide-content"><span class="slide-text">Banner 1</span></div>
       </div>
       <div class="slide slide-3" aria-hidden="true">
         <!-- swap background-image / <img class="slide-img"> in here -->
