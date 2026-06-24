@@ -80,8 +80,10 @@ body{font-family:"Poppins",sans-serif;color:#1A5C1A;overflow-x:hidden;}
   .nav{display:none;}
   .burger{display:flex;}
   body.nav-open .mobile-nav{display:flex;}
-  /* hero: sensible mobile height; full-bleed images keep centred food in view */
-  .hero-carousel{min-height:60svh;}
+  /* hero: size to the genz image's aspect ratio so it shows uncropped (no letterbox); other slides still cover */
+  .hero-carousel{min-height:0;aspect-ratio:1024 / 559;}
+  .slide--hero{background:var(--cream);}
+  .slide--hero .slide-img{object-fit:contain;object-position:center;}
   .carousel-arrow{width:40px;height:40px;}
   /* brand strip stacks into a single column on mobile */
   .brand-strip{grid-template-columns:1fr;gap:0;padding:clamp(2rem,7vw,2.75rem) 1.5rem;}
