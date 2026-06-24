@@ -85,32 +85,37 @@ body{font-family:"Poppins",sans-serif;color:#1A5C1A;overflow-x:hidden;}
   .waitlist-form{flex-direction:column;}
   .footer{grid-template-columns:1fr;gap:2rem;text-align:left;}
 }
-.story{background:var(--cream);overflow:hidden;padding:clamp(20px,4vw,40px) 0 clamp(34px,5vw,56px);}
-.story-route{display:block;width:100%;margin:0 0 clamp(16px,3vw,30px);}
-.story-row{position:relative;display:flex;align-items:center;gap:clamp(6px,3vw,28px);max-width:720px;margin:0 auto;padding:clamp(10px,2.5vw,22px) clamp(20px,5vw,40px);}
-.story-row--right{flex-direction:row-reverse;}
-.story-cut{flex:0 0 auto;width:clamp(130px,30vw,230px);}
+.story{position:relative;background:var(--cream);overflow:hidden;padding:clamp(30px,6vw,70px) 0;}
+.story-path{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;}
+.story-cap{position:relative;z-index:2;text-align:center;font-weight:600;font-size:clamp(20px,4vw,30px);color:var(--green);margin:0 auto;padding:0 24px;}
+.story-cap span{font-weight:800;font-style:italic;color:var(--amber);}
+.story-cap--start{margin-bottom:clamp(10px,3vw,30px);}
+.story-cap--end{margin-top:clamp(10px,3vw,30px);}
+.story-panel{position:relative;z-index:1;display:flex;align-items:center;min-height:68vh;max-width:1100px;margin:0 auto;padding:0 clamp(16px,4vw,48px);gap:clamp(4px,2vw,40px);}
+.story-panel--right{flex-direction:row-reverse;}
+.story-cut{flex:0 0 auto;width:clamp(220px,46vw,520px);}
 .story-cut img{display:block;width:100%;height:auto;animation:storyFloat 6s ease-in-out infinite;}
+.story-panel--left .story-cut{margin-left:clamp(-90px,-7vw,-40px);}
+.story-panel--right .story-cut{margin-right:clamp(-90px,-7vw,-40px);}
 .story-txt{flex:1;}
-.story-row--left .story-txt{text-align:left;}
-.story-row--right .story-txt{text-align:right;}
-.story-pre{margin:0;font-size:clamp(13px,3.4vw,16px);color:var(--brown);line-height:1.3;}
-.story-word{margin:2px 0 0;font-weight:800;font-size:clamp(30px,7.5vw,48px);color:var(--green);line-height:1;letter-spacing:-0.5px;}
-.story-row--left .story-cut{margin-left:clamp(-44px,-6vw,-20px);}
-.story-row--right .story-cut{margin-right:clamp(-44px,-6vw,-20px);}
-.story-row{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;}
-.story-row.is-visible{opacity:1;transform:translateY(0);}
-.story-row:nth-of-type(3) .story-cut img{animation-duration:6.6s;animation-delay:-1s;}
-.story-row:nth-of-type(4) .story-cut img{animation-duration:7s;animation-delay:-2s;}
-.story-row:nth-of-type(5) .story-cut img{animation-duration:5.6s;animation-delay:-3s;}
-@keyframes storyFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-9px);}}
+.story-panel--left .story-txt{text-align:right;}
+.story-panel--right .story-txt{text-align:left;}
+.story-pre{margin:0 0 4px;font-size:clamp(15px,2.2vw,22px);font-weight:500;color:var(--brown);line-height:1.2;}
+.story-word{margin:0;font-weight:800;font-size:clamp(46px,9vw,104px);color:var(--green);line-height:0.9;letter-spacing:-2px;}
+.story-panel{opacity:0;transform:translateY(34px);transition:opacity .8s ease,transform .8s ease;}
+.story-panel.is-visible{opacity:1;transform:translateY(0);}
+.story-panel:nth-of-type(3) .story-cut img{animation-duration:6.6s;animation-delay:-1s;}
+.story-panel:nth-of-type(4) .story-cut img{animation-duration:7s;animation-delay:-2s;}
+.story-panel:nth-of-type(5) .story-cut img{animation-duration:5.6s;animation-delay:-3s;}
+@keyframes storyFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
 @media (max-width:768px){
-  .story-row{padding:clamp(8px,2.5vw,16px) 12px;gap:4px;}
-  .story-cut{width:clamp(108px,36vw,150px);}
-  .story-row--left .story-cut{margin-left:-30px;}
-  .story-row--right .story-cut{margin-right:-30px;}
+  .story-panel{min-height:64vh;gap:0;padding:0 12px;}
+  .story-cut{width:clamp(200px,72vw,300px);}
+  .story-panel--left .story-cut{margin-left:-64px;}
+  .story-panel--right .story-cut{margin-right:-64px;}
+  .story-word{font-size:clamp(44px,16vw,68px);}
 }
 @media (prefers-reduced-motion:reduce){
   .story-cut img{animation:none;}
-  .story-row{transition:none;}
+  .story-panel{transition:none;}
 }
