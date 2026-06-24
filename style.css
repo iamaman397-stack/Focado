@@ -135,3 +135,4 @@ body{font-family:"Poppins",sans-serif;color:#1A5C1A;overflow-x:hidden;}
 .menu-page-title{font-weight:800;font-size:clamp(40px,8vw,80px);color:var(--green);margin:6px 0 12px;letter-spacing:-1px;}
 .menu-page-sub{font-size:clamp(16px,2.5vw,20px);color:var(--brown);margin:0;}
 .menu-page .cards{margin-top:clamp(2rem,5vw,3.5rem);}
+.order-page{min-height:60vh;display:flex;flex-direction:column;justify-content:center;}
