@@ -33,29 +33,16 @@
 <main>
   <section class="hero-carousel" aria-roledescription="carousel" aria-label="Featured banners">
     <div class="carousel-track">
-      <!--
-        SLIDE TEMPLATE — to use a real banner later:
-        1. Drop an image in as the first child of .slide:
-             <img class="slide-img" src="banner-1.jpg" alt="" />
-           (it is absolutely positioned + object-fit:cover and sits behind .slide-content)
-           OR set background-image on the .slide-N rule in style.css instead of the colour.
-        2. Put the headline / CTA markup inside .slide-content (it already overlays the background).
-        The placeholder colour + "Banner N" text below is only so we can tell slides apart for now.
-      -->
-      <!-- Food banner shown first; keeps its .slide-2 styling (image + headline) -->
-      <div class="slide slide-2 is-active" aria-hidden="false">
+      <!-- Text-free image slides; full-bleed, object-fit:cover, centered.
+           Using existing banners for now; swap to banner1/2/3.png later. -->
+      <div class="slide is-active" aria-hidden="false">
         <img class="slide-img" src="banner-food.png" alt="" />
-        <div class="slide-content"><h2 class="banner-headline"><span class="banner-accent">Goooood</span> food<br>is coming<br>to Kolkata.<br>Get ready.</h2><a class="hero-cta" href="#waitlist">Join the waitlist</a></div>
       </div>
-      <!-- Splash banner: dark full-bleed image with upper-left amber/cream text -->
-      <div class="slide slide-splash" aria-hidden="true">
+      <div class="slide" aria-hidden="true">
         <img class="slide-img" src="banner-splash.png" alt="" />
-        <div class="slide-content"><h2 class="splash-headline"><span class="splash-items">Hummus, pita,<br>falafel, tzatziki</span> <span class="splash-rest">and a whole lot more</span></h2><a class="hero-cta" href="#waitlist">Join the waitlist</a></div>
       </div>
-      <!-- Reaction banner: light full-bleed image with right-side green/amber text -->
-      <div class="slide slide-3" aria-hidden="true">
+      <div class="slide" aria-hidden="true">
         <img class="slide-img" src="banner-reaction.png" alt="" />
-        <div class="slide-content"><h2 class="reaction-headline">Goodbye,<br><span class="reaction-boring">boring</span> meals.</h2><a class="hero-cta" href="#waitlist">Join the waitlist</a></div>
       </div>
     </div>
     <button class="carousel-arrow carousel-prev" aria-label="Previous banner">
@@ -68,6 +55,14 @@
       <button class="dot is-active" type="button" role="tab" aria-selected="true" aria-label="Go to banner 1"></button>
       <button class="dot" type="button" role="tab" aria-selected="false" aria-label="Go to banner 2"></button>
       <button class="dot" type="button" role="tab" aria-selected="false" aria-label="Go to banner 3"></button>
+    </div>
+  </section>
+  <section class="brand-strip" aria-label="Our promise">
+    <div class="brand-zone brand-zone--left">
+      <p class="brand-craved"><span class="bz-top">Made to be</span><span class="bz-accent">craved.</span></p>
+    </div>
+    <div class="brand-zone brand-zone--right">
+      <p class="brand-promise">Loaded with <span class="bz-accent-inline">flavour.</span><br>Packed with <span class="bz-accent-inline">protein.</span></p>
     </div>
   </section>
   <section class="menu">
@@ -150,7 +145,7 @@
   var dots   = Array.prototype.slice.call(carousel.querySelectorAll('.dot'));
   var prevBtn = carousel.querySelector('.carousel-prev');
   var nextBtn = carousel.querySelector('.carousel-next');
-  var DELAY = 3000;        // auto-advance every 3 seconds
+  var DELAY = 4000;        // auto-advance every 4 seconds
   var current = 0;
   var timer = null;
 
