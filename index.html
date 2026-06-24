@@ -65,55 +65,34 @@
       <p class="brand-promise">Loaded with <span class="bz-accent-inline">flavour.</span><br>Packed with <span class="bz-accent-inline">protein.</span></p>
     </div>
   </section>
-  <section class="story" aria-label="The Focado journey">
-    <div class="story-banner">
-      <div class="story-banner-head">
-        <p class="story-kicker">THE FOCADO JOURNEY</p>
-        <p class="story-title">Straight from the Med</p>
-        <p class="story-title story-title--accent">to Kolkata.</p>
-      </div>
-      <p class="story-banner-sub">So you can<br><span>Craveee</span><br>with us</p>
+  <section class="story" aria-label="Mediterranean flavours, made in India">
+    <svg class="story-route" viewBox="0 0 680 70" aria-hidden="true">
+      <path d="M40 48 C 200 12, 320 60, 460 28 C 540 10, 600 34, 640 22" fill="none" stroke="#1A5C1A" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round" opacity="0.45"/>
+      <circle cx="40" cy="48" r="4" fill="#1A5C1A"/>
+      <text x="34" y="66" font-family="Poppins,sans-serif" font-size="10" font-weight="600" fill="#1A5C1A" letter-spacing="0.1em">MEDITERRANEAN</text>
+      <circle cx="640" cy="22" r="4" fill="#E89500"/>
+      <text x="600" y="14" font-family="Poppins,sans-serif" font-size="10" font-weight="600" fill="#1A5C1A" letter-spacing="0.1em">INDIA</text>
+    </svg>
+
+    <div class="story-row story-row--left">
+      <div class="story-cut"><img src="story-hummus.png" alt="" onerror="this.style.display='none'"/></div>
+      <div class="story-txt"><p class="story-pre">the creamy pull of</p><p class="story-word">HUMMUS</p></div>
     </div>
-    <div class="story-body">
-      <svg class="story-route" viewBox="0 0 680 80" aria-hidden="true">
-        <path d="M40 55 C 180 10, 300 70, 440 30 C 520 8, 600 40, 640 22" fill="none" stroke="#1A5C1A" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round" opacity="0.5"/>
-        <circle cx="40" cy="55" r="4" fill="#1A5C1A"/>
-        <text x="34" y="74" font-family="Poppins,sans-serif" font-size="10" font-weight="600" fill="#1A5C1A" letter-spacing="0.1em">MEDITERRANEAN</text>
-        <circle cx="640" cy="22" r="4" fill="#E89500"/>
-        <text x="588" y="14" font-family="Poppins,sans-serif" font-size="10" font-weight="600" fill="#1A5C1A" letter-spacing="0.1em">KOLKATA</text>
-        <g transform="translate(440 30) rotate(-18)">
-          <path d="M0 0 L26 4 L26 0 L34 5 L26 10 L26 6 L0 10 Q-6 5 0 0 Z" fill="#1A5C1A"/>
-          <path d="M8 4 L4 -10 L9 -10 L16 4 Z" fill="#1A5C1A"/>
-          <path d="M8 6 L4 18 L9 18 L16 6 Z" fill="#1A5C1A"/>
-        </g>
-      </svg>
-
-      <div class="story-cut story-cut--falafel"><div class="story-cut-in">
-        <img src="story-falafel.png" alt="" />
-      </div></div>
-
-      <div class="story-cut story-cut--hummus"><div class="story-cut-in">
-        <img src="story-hummus.png" alt="" />
-      </div></div>
-
-      <div class="story-cut story-cut--lemon"><div class="story-cut-in">
-        <img src="story-lemon.png" alt="" />
-      </div></div>
-
-      <div class="story-cut story-cut--olive"><div class="story-cut-in">
-        <img src="story-olive.png" alt="" />
-      </div></div>
-
-      <div class="story-copy">
-        <p class="story-lede">5,000 km of sun-soaked flavour — now a few taps from your door.</p>
-        <p class="story-pre">the creamy pull of</p><p class="story-word">HUMMUS</p>
-        <p class="story-pre">the golden crunch of</p><p class="story-word">FALAFEL</p>
-        <p class="story-pre">the bold kick of</p><p class="story-word">HARISSA</p>
-      </div>
-
-      <div class="story-closer">
-        <p>We brought the Mediterranean's boldest flavours home to Kolkata. No passport. No compromise. Just food you'll <em>Craveee.</em></p>
-      </div>
+    <div class="story-row story-row--right">
+      <div class="story-cut"><img src="story-falafel.png" alt="" onerror="this.style.display='none'"/></div>
+      <div class="story-txt"><p class="story-pre">the golden crunch of</p><p class="story-word">FALAFEL</p></div>
+    </div>
+    <div class="story-row story-row--left">
+      <div class="story-cut"><img src="story-harissa.png" alt="" onerror="this.style.display='none'"/></div>
+      <div class="story-txt"><p class="story-pre">the bold kick of</p><p class="story-word">HARISSA</p></div>
+    </div>
+    <div class="story-row story-row--right">
+      <div class="story-cut"><img src="story-pita.png" alt="" onerror="this.style.display='none'"/></div>
+      <div class="story-txt"><p class="story-pre">the warm pull of</p><p class="story-word">PITA</p></div>
+    </div>
+    <div class="story-row story-row--left">
+      <div class="story-cut"><img src="story-tahini.png" alt="" onerror="this.style.display='none'"/></div>
+      <div class="story-txt"><p class="story-pre">the silky drizzle of</p><p class="story-word">TAHINI</p></div>
     </div>
   </section>
   <section class="menu">
@@ -234,12 +213,12 @@
 })();
 
 (function(){
-  var s=document.querySelector('.story');
-  if(!s)return;
+  var rows=document.querySelectorAll('.story-row');
+  if(!rows.length)return;
   var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){s.classList.add('is-visible');io.unobserve(s);}});
-  },{threshold:0.2});
-  io.observe(s);
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target);}});
+  },{threshold:0.25});
+  rows.forEach(function(r){io.observe(r);});
 })();
 </script>
 </body>
