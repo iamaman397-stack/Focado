@@ -5,7 +5,7 @@ html{scroll-behavior:smooth;}
 body{font-family:"Poppins",sans-serif;color:#1A5C1A;overflow-x:hidden;}
 .topbar{display:flex;align-items:center;justify-content:space-between;padding:18px clamp(1.5rem,4vw,3.5rem);background:var(--green);box-shadow:0 1px 0 rgba(0,0,0,0.15);}
 .topbar .logo{display:block;height:48px;width:auto;}
-.nav{display:flex;gap:clamp(1rem,1.6vw,1.6rem);margin-left:auto;}
+.nav{display:flex;gap:2.75rem;align-items:center;margin-left:auto;}
 .nav a{font-weight:600;font-size:1.05rem;color:var(--cream);text-decoration:none;transition:color 0.2s;}
 .nav a:hover{color:var(--amber);}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;}
