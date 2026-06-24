@@ -99,9 +99,19 @@ body{font-family:"Poppins",sans-serif;color:#1A5C1A;overflow-x:hidden;}
 .story-map--med{top:clamp(-8px,1vw,12px);width:clamp(300px,60vw,460px);height:auto;}
 .story-map--india{bottom:clamp(-4px,1vw,16px);width:clamp(150px,26vw,230px);height:auto;}
 .story-pin{position:absolute;width:14px;height:14px;border-radius:50%;background:var(--amber);border:3px solid var(--cream);transform:translate(-50%,-50%);z-index:2;pointer-events:none;}
+.story-accent{position:absolute;z-index:1;pointer-events:none;height:auto;opacity:0.95;}
+.story-accent--1{top:5%;right:4%;width:clamp(110px,15vw,185px);transform:rotate(8deg);}
+.story-accent--2{top:31%;left:3%;width:clamp(70px,9vw,120px);transform:rotate(-10deg);}
+.story-accent--3{top:57%;right:4%;width:clamp(110px,15vw,185px);transform:rotate(-6deg);}
+.story-accent--4{bottom:6%;left:4%;width:clamp(78px,10vw,130px);transform:rotate(12deg);}
 @media (max-width:700px){
   .story-map{opacity:0.1;}
   .story-pin{width:11px;height:11px;border-width:2px;}
+  .story-accent{opacity:0.9;}
+  .story-accent--1{width:clamp(70px,18vw,104px);}
+  .story-accent--2{width:clamp(48px,12vw,72px);}
+  .story-accent--3{width:clamp(70px,18vw,104px);}
+  .story-accent--4{width:clamp(52px,13vw,80px);}
 }
 .story-cap{position:relative;z-index:3;text-align:center;font-weight:600;font-size:clamp(22px,4.5vw,34px);color:var(--green);margin:0 auto;padding:0 24px;}
 .story-cap span{font-weight:800;font-style:italic;color:var(--amber);}
