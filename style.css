@@ -1,6 +1,7 @@
 :root{--green:#1A5C1A;--amber:#E89500;--cream:#F5F0E8;--brown:#3D2B1F;--white:#FFFFFF;}
 *{margin:0;padding:0;box-sizing:border-box;}
 html,body{margin:0;padding:0;background:#FFFFFF;}
+html{scroll-behavior:smooth;}
 body{font-family:"Poppins",sans-serif;color:#1A5C1A;overflow-x:hidden;}
 .topbar{display:flex;align-items:center;justify-content:space-between;padding:18px clamp(1.5rem,4vw,3.5rem);background:var(--green);box-shadow:0 1px 0 rgba(0,0,0,0.15);}
 .topbar .logo{display:block;height:48px;width:auto;}
@@ -59,6 +60,9 @@ body{font-family:"Poppins",sans-serif;color:#1A5C1A;overflow-x:hidden;}
 /* text/CTA overlay — lives above the background/image */
 .slide-content{position:relative;z-index:1;text-align:center;padding:0 1.5rem;}
 .slide-text{font-family:"Poppins",sans-serif;font-weight:800;font-size:clamp(2.5rem,6vw,5rem);letter-spacing:-0.02em;}
+/* CTA inside each slide — hidden on desktop, shown in the mobile stacked band */
+.hero-cta{display:none;font-family:inherit;font-weight:700;font-size:clamp(0.95rem,3.6vw,1.05rem);color:var(--cream);background:var(--green);border-radius:999px;padding:0.7em 1.7em;text-decoration:none;transition:background-color 0.2s;}
+.hero-cta:hover{background:var(--amber);}
 .slide-1 .slide-text,.slide-3 .slide-text{color:var(--cream);}
 .slide-2 .slide-text{color:var(--green);}
 /* arrows */
@@ -96,49 +100,44 @@ body{font-family:"Poppins",sans-serif;color:#1A5C1A;overflow-x:hidden;}
 .footer-center{text-align:center;font-weight:600;font-size:1.05rem;align-self:center;}
 .footer-right{display:flex;flex-direction:column;gap:0.7rem;text-align:right;}
 .footer-right span{font-weight:500;font-size:1rem;color:var(--cream);}
-@media(max-width:760px){
+@media(max-width:768px){
   .topbar{padding:16px 1.5rem;}
   .topbar .logo{height:42px;}
   .nav{display:none;}
   .burger{display:flex;}
   body.nav-open .mobile-nav{display:flex;}
-  /* sensible mobile banner height + clear gap to the next section.
-     A shorter banner reveals more of the image width, so both the text-side
-     empty zone and the food subject can stay visible under object-fit:cover. */
-  .hero-carousel{min-height:52svh;margin-bottom:clamp(1.5rem,5vw,2.5rem);}
-  .carousel-arrow{width:40px;height:40px;}
-  .slide-text{font-size:clamp(2rem,9vw,3rem);}
+  /* ===== Mobile: stacked image-then-text layout with a CTA (one tight unit) =====
+     Whole food image on top at natural ratio, then a solid text band that hugs
+     the headline + CTA directly below it. Dots sit on a green strip beneath. */
+  /* hero hugs its content; green strip shows behind the dots; gap to next section */
+  .hero-carousel{min-height:0;overflow:visible;background:var(--green);margin-bottom:clamp(2rem,6vw,3rem);}
+  /* track + active slide flow in-document so the unit's height hugs content */
+  .carousel-track{position:relative;inset:auto;}
+  .slide.is-active{position:relative;flex-direction:column;align-items:stretch;justify-content:flex-start;}
+  /* hide the overlay arrows on mobile — dots handle navigation */
+  .carousel-arrow{display:none;}
+  /* drop the desktop overlay scrims */
+  .slide-2::before,.slide-splash::before,.slide-3::before{display:none;}
 
-  /* Mobile keeps the DESKTOP overlay: headline sits ON the image on the same
-     side as desktop, with a subtle text-side scrim so it stays readable over
-     the photo and clamp-scaled fonts so it fits without covering the food. */
+  /* TOP: full food image at natural aspect ratio, full width, not cropped tall */
+  .slide-2 .slide-img,.slide-splash .slide-img,.slide-3 .slide-img{position:static;inset:auto;display:block;width:100%;height:auto;object-fit:contain;object-position:center;transform:none;}
 
-  /* Slide 1 (.slide-2): text LEFT over the cream area, green/amber.
-     Bias the crop left of centre so cream sits under the text while the
-     bowls stay visible on the right. */
-  .slide-2 .slide-img{object-position:32% center;transform:none;}
-  .slide-2 .slide-content{z-index:2;max-width:64%;padding:0 1rem 0 1.25rem;}
-  .banner-headline{font-size:clamp(1.55rem,6.8vw,2.4rem);white-space:normal;}
-  /* soft cream-to-transparent scrim on the left only (subtle, not a box) */
-  .slide-2::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(245,240,232,0.9) 0%,rgba(245,240,232,0.55) 32%,rgba(245,240,232,0) 58%);}
+  /* DIRECTLY BELOW: solid text band hugging the headline + CTA, centered */
+  .slide-2 .slide-content,.slide-splash .slide-content,.slide-3 .slide-content{position:relative;z-index:1;display:block;width:100%;max-width:none;text-align:center;padding:clamp(1.1rem,4.5vw,1.6rem) clamp(1rem,5vw,1.5rem) clamp(1.4rem,5vw,1.9rem);}
+  .slide-2 .slide-content{background:#F5F0E8;}       /* Slide 1: cream band */
+  .slide-splash .slide-content{background:#1A1714;}  /* Slide 2: dark charcoal band */
+  .slide-3 .slide-content{background:#F5F0E8;}        /* Slide 3: cream band */
 
-  /* Slide 2 (.slide-splash): text LEFT over the dark area, amber/cream.
-     Bias the crop left of centre so the dark zone sits under the text while
-     the bowl/splash stays visible on the right. */
-  .slide-splash .slide-img{object-position:42% center;}
-  .slide-splash .slide-content{max-width:72%;padding:0 1rem 0 1.25rem;}
-  .splash-headline{font-size:clamp(1.35rem,5.8vw,2.1rem);white-space:normal;}
-  /* deepen the existing left dark scrim a touch for small screens */
-  .slide-splash::before{background:linear-gradient(105deg,rgba(0,0,0,0.74) 0%,rgba(0,0,0,0.42) 42%,rgba(0,0,0,0) 66%);}
+  /* headlines: centered, wrap, scaled to fit snugly (keep existing line breaks) */
+  .banner-headline{font-size:clamp(1.6rem,7vw,2.4rem);white-space:normal;}
+  .splash-headline{font-size:clamp(1.45rem,6vw,2.1rem);white-space:normal;}
+  .reaction-headline{font-size:clamp(1.7rem,7.5vw,2.5rem);white-space:normal;}
 
-  /* Slide 3 (.slide-3): text RIGHT, green with amber "boring".
-     Bias the crop right of centre so the clean zone sits under the text while
-     the food/person stays visible on the left. */
-  .slide-3 .slide-img{object-position:72% center;}
-  .slide-3 .slide-content{max-width:72%;padding:0 1.25rem 0 1rem;}
-  .reaction-headline{font-size:clamp(1.6rem,7vw,2.5rem);white-space:normal;}
-  /* deepen the existing right cream scrim a touch for small screens */
-  .slide-3::before{background:linear-gradient(270deg,rgba(245,240,232,0.9) 0%,rgba(245,240,232,0.55) 32%,rgba(245,240,232,0) 58%);}
+  /* CTA button under every headline */
+  .hero-cta{display:inline-block;margin-top:clamp(0.9rem,3.5vw,1.25rem);}
+
+  /* dots flow on the green strip below the unit, clear of the CTA */
+  .carousel-dots{position:static;left:auto;bottom:auto;transform:none;justify-content:center;padding:14px 0;}
   .cards{grid-template-columns:repeat(2,1fr);max-width:520px;}
   .waitlist-form{flex-direction:column;}
   .footer{grid-template-columns:1fr;text-align:center;gap:1.5rem;}
